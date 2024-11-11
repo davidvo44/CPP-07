@@ -6,29 +6,43 @@
 /*   By: dvo <dvo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 18:27:55 by dvo               #+#    #+#             */
-/*   Updated: 2024/10/26 16:22:09 by dvo              ###   ########.fr       */
+/*   Updated: 2024/11/11 18:19:55 by dvo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
+#include "iter.hpp"
+
+char uppercase(char c);
+int	multiply(int c);
 
 int main( void )
 {
-	int a = 2;
-	int b = 3;
+	std::string test = "oui 15 sasd qwdASDAS";
+	int *nb = new int[4];
+	nb[0] = 2;
+	nb[1] = 6;
+	nb[2] = 8;
+	nb[3] = 10;
+	::iter(nb, 40, multiply);
+	::iter(test, 2, uppercase);
+	std::cout << test << std::endl;
+	std::cout << nb[0] << std::endl;
+	std::cout << nb[1] << std::endl;
+	std::cout << nb[2] << std::endl;
+	std::cout << nb[3] << std::endl;
 
-	::swap( a, b );
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	return (0);
+}
 
-	std::string c = "chaine1";
-	std::string d = "chaine2";
+char uppercase(char c)
+{
+	if (c >= 'a' && c <= 'z')
+		c = c - 32;
+    return (c);
+}
 
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-	
-	return 0;
+int	multiply(int c)
+{
+	c = c *2;
+	return (c);
 }
