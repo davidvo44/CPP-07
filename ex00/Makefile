@@ -6,7 +6,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
 IFLAGS = whatever.hpp
 
-SRCS = main.cpp
+SRCS = ex00.cpp
 
 DIR_OBJ := .object/
 

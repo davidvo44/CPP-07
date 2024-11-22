@@ -6,27 +6,23 @@
 /*   By: dvo <dvo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 16:57:51 by dvo               #+#    #+#             */
-/*   Updated: 2024/11/02 20:17:32 by dvo              ###   ########.fr       */
+/*   Updated: 2024/11/12 20:04:45 by dvo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
 template <typename T>
-Array<T>::Array() : _nb(1)
+Array<T>::Array() : _nb(0)
 {
-	_array = new T*;
-	_array[0] = 0;
-	_nb = 1;
-
+	_array = new T[0];
+	_nb = 0;
 }
 
 template <typename T>
 Array<T>::Array(unsigned n) : _nb(n)
 {
 	_array = new T[n];
-	for (unsigned i = 0; i < n; i++)
-		_array[i] = 0;
 }
 
 template <typename T>
@@ -93,6 +89,14 @@ const char* Array<T>::OutOfRange::what() const throw()
 
 template <typename T>
 T& Array<T>::operator[](unsigned index)
+{
+	if (index < 0 || index >= _nb)
+		throw OutOfRange();
+    return _array[index];
+}
+
+template <typename T>
+const T& Array<T>::operator[](unsigned index) const
 {
 	if (index < 0 || index >= _nb)
 		throw OutOfRange();

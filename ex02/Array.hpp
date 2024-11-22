@@ -6,7 +6,7 @@
 /*   By: dvo <dvo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 16:24:52 by dvo               #+#    #+#             */
-/*   Updated: 2024/11/11 18:22:30 by dvo              ###   ########.fr       */
+/*   Updated: 2024/11/12 19:44:53 by dvo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
 		//Operator
 	Array& operator=(Array const & src);
 	T& operator[](unsigned index);
+	const T& operator[](unsigned index) const;
 		//Get-Set
 	T			GetArray(unsigned n) const;
 	unsigned	GetNb() const;
